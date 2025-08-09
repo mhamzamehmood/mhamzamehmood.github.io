@@ -4,112 +4,172 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Hamza Mehmood - Professional Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Global Styles */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f9f9f9;
+            background-color: #f4f7fa;
             margin: 0;
             padding: 0;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            max-width: 900px; /* Narrower for a 'small page' feel */
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
 
         /* Header */
         header {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e0e0e0;
-            padding: 40px 0;
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 60px 40px;
             text-align: center;
+            position: relative;
         }
 
         header h1 {
-            font-size: 2.5em;
-            margin: 0;
-            color: #2c3e50;
+            font-size: 2.8em;
+            margin: 0 0 10px;
+            font-weight: 700;
         }
 
         header p {
             font-size: 1.1em;
-            color: #7f8c8d;
-            margin-top: 10px;
+            margin: 5px 0;
+            opacity: 0.9;
         }
 
         header p a {
-            color: #3498db;
+            color: #ffffff;
             text-decoration: none;
-            margin: 0 5px;
+            margin: 0 8px;
+            transition: color 0.3s;
         }
 
         header p a:hover {
-            text-decoration: underline;
+            color: #3498db;
+        }
+
+        header .icon {
+            margin-right: 8px;
+        }
+
+        /* Profile Picture Placeholder */
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #ecf0f1;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            color: #7f8c8d;
+            border: 4px solid #ffffff;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .sidebar {
+            flex: 1 1 300px;
+            background-color: #f9f9f9;
+            padding: 40px 30px;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .content {
+            flex: 2 1 600px;
+            padding: 40px 30px;
         }
 
         /* Sections */
         section {
-            background-color: #ffffff;
-            margin: 20px 0;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
         }
 
         section h2 {
             font-size: 1.8em;
             color: #2c3e50;
-            border-bottom: 2px solid #3498db;
+            border-bottom: 3px solid #3498db;
             padding-bottom: 10px;
             margin-bottom: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Experience and Education Items */
         .item {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .item::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #3498db;
+            font-size: 1.2em;
         }
 
         .item h3 {
             font-size: 1.4em;
             margin: 0 0 5px;
             color: #34495e;
-        }
-
-        .item .title {
-            font-weight: bold;
-            color: #2c3e50;
+            font-weight: 700;
         }
 
         .item .organization {
             font-style: italic;
             color: #7f8c8d;
+            margin-bottom: 5px;
         }
 
         .item .date {
-            float: right;
+            font-size: 0.9em;
             color: #95a5a6;
+            margin-bottom: 10px;
         }
 
         .item .description {
-            margin-top: 10px;
             color: #555;
-        }
-
-        .item ul {
-            list-style-type: disc;
-            margin-left: 20px;
         }
 
         /* Publications */
         .publication {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #e0e0e0;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .publication::before {
+            content: "\f15c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #3498db;
+            font-size: 1.2em;
         }
 
         .publication:last-child {
@@ -118,11 +178,13 @@
 
         .publication p {
             margin: 0;
+            font-size: 0.95em;
         }
 
         .publication a {
             color: #3498db;
             text-decoration: none;
+            font-weight: bold;
         }
 
         .publication a:hover {
@@ -131,13 +193,14 @@
 
         /* Skills */
         .skills-category {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .skills-category h3 {
             font-size: 1.3em;
             color: #34495e;
             margin-bottom: 10px;
+            font-weight: 700;
         }
 
         .skills-list {
@@ -147,40 +210,59 @@
         }
 
         .skill {
-            background-color: #ecf0f1;
+            background-color: #3498db;
+            color: #ffffff;
             padding: 8px 15px;
             border-radius: 20px;
             font-size: 0.9em;
-            color: #2c3e50;
+            font-weight: 600;
+            transition: background-color 0.3s;
         }
 
-        /* Awards and Grants */
-        .award {
-            margin-bottom: 10px;
+        .skill:hover {
+            background-color: #2980b9;
         }
 
-        .award strong {
+        /* Languages and Awards */
+        .language, .award {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .language::before, .award::before {
+            content: "\f091";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #3498db;
+            font-size: 1.2em;
+        }
+
+        .language strong, .award strong {
             color: #34495e;
+            font-weight: 700;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            header {
+                padding: 40px 20px;
+            }
+
             .container {
-                padding: 15px;
-            }
-
-            header h1 {
-                font-size: 2em;
-            }
-
-            section {
-                padding: 20px;
-            }
-
-            .item .date {
-                float: none;
-                display: block;
-                margin-top: 5px;
+                margin: 20px;
             }
         }
 
@@ -188,164 +270,182 @@
         footer {
             text-align: center;
             padding: 20px;
-            color: #95a5a6;
+            background-color: #2c3e50;
+            color: #ffffff;
             font-size: 0.9em;
-            border-top: 1px solid #e0e0e0;
-            margin-top: 40px;
+        }
+
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
+            <div class="profile-pic">Profile Picture</div> <!-- Add your image here: <img src="your-photo.jpg" alt="Muhammad Hamza Mehmood"> -->
             <h1>Muhammad Hamza Mehmood</h1>
+            <p><i class="fas fa-envelope icon"></i> mhamzamehmood@mail.ustc.edu.cn</p>
             <p>
-                mhamzamehmood@mail.ustc.edu.cn | 
-                <a href="https://scholar.google.com/" target="_blank">Google Scholar</a> | 
-                <a href="https://www.researchgate.net/" target="_blank">ResearchGate</a> | 
-                Hefei, China
+                <a href="https://scholar.google.com/" target="_blank"><i class="fab fa-google icon"></i> Google Scholar</a> | 
+                <a href="https://github.com/" target="_blank"><i class="fab fa-github icon"></i> GitHub</a> | 
+                <a href="https://www.researchgate.net/" target="_blank"><i class="fab fa-researchgate icon"></i> ResearchGate</a>
             </p>
+            <p><i class="fas fa-map-marker-alt icon"></i> Hefei, China</p>
         </header>
 
-        <section id="work-experience">
-            <h2>Work Experience</h2>
-            <div class="item">
-                <h3>AI Research Intern</h3>
-                <p class="organization">Zhongke Juisi Intelligent Technology (Anhui) Co., Ltd.</p>
-                <p class="date">March 2025 - Present</p>
-            </div>
-            <div class="item">
-                <h3>Research Assistant - Medical Image Analysis</h3>
-                <p class="organization">University of Science and Technology of China</p>
-                <p class="date">2023 - Present</p>
-            </div>
-            <div class="item">
-                <h3>Research Assistant - Medical Image Analysis</h3>
-                <p class="organization">University of Engineering and Technology Taxila</p>
-                <p class="date">2020 - 2022</p>
-            </div>
-        </section>
+        <div class="main-content">
+            <aside class="sidebar">
+                <section id="technical-skills">
+                    <h2>Technical Skills</h2>
+                    <div class="skills-category">
+                        <h3>Programming Languages</h3>
+                        <div class="skills-list">
+                            <span class="skill">Python</span>
+                            <span class="skill">C++</span>
+                        </div>
+                    </div>
+                    <div class="skills-category">
+                        <h3>Machine & Deep-Learning Frameworks</h3>
+                        <div class="skills-list">
+                            <span class="skill">TensorFlow</span>
+                            <span class="skill">PyTorch</span>
+                            <span class="skill">Keras</span>
+                            <span class="skill">Scikit-learn</span>
+                        </div>
+                    </div>
+                    <div class="skills-category">
+                        <h3>Data Analysis & Visualization</h3>
+                        <div class="skills-list">
+                            <span class="skill">Pandas</span>
+                            <span class="skill">NumPy</span>
+                            <span class="skill">Matplotlib</span>
+                            <span class="skill">Seaborn</span>
+                        </div>
+                    </div>
+                    <div class="skills-category">
+                        <h3>Image & Signal Processing</h3>
+                        <div class="skills-list">
+                            <span class="skill">OpenCV</span>
+                            <span class="skill">scikit-image</span>
+                            <span class="skill">Librosa</span>
+                        </div>
+                    </div>
+                    <div class="skills-category">
+                        <h3>Tools</h3>
+                        <div class="skills-list">
+                            <span class="skill">Jupyter Notebook</span>
+                            <span class="skill">VS Code</span>
+                            <span class="skill">GitHub</span>
+                        </div>
+                    </div>
+                </section>
 
-        <section id="education">
-            <h2>Education</h2>
-            <div class="item">
-                <h3>Master of Science in Electronic Information</h3>
-                <p class="organization">University of Science and Technology of China, Hefei, China</p>
-                <p class="date">Sep 2023 - Present</p>
-                <p class="description">Relevant Courses: Deep Learning, Reinforcement Learning, Computer Vision & Pattern Recognition, Data Visualization, Applied Math for Computing</p>
-            </div>
-            <div class="item">
-                <h3>Bachelor of Science in Software Engineering</h3>
-                <p class="organization">University of Engineering and Technology Taxila, Taxila, Pakistan</p>
-                <p class="date">Sep 2017 - Jul 2021</p>
-                <p class="description">Relevant Courses: Machine Learning, Image Processing, Artificial Intelligence</p>
-            </div>
-        </section>
+                <section id="language-skills">
+                    <h2>Language Skills</h2>
+                    <div class="language">
+                        <p><strong>English:</strong> Fluent (IELTS certification)</p>
+                    </div>
+                    <div class="language">
+                        <p><strong>Urdu & Punjabi:</strong> Native Speaker</p>
+                    </div>
+                </section>
 
-        <section id="publications">
-            <h2>Publications</h2>
-            <div class="publication">
-                <p>Mehmood, M.H., Khan, M.I., Ibrahim, A., Balancing Privacy and Accuracy: Federated Learning with Differential Privacy for Medical Image Data. DSIT. 2024. IEEE. <a href="[URL]" target="_blank">[URL]</a></p>
-            </div>
-            <div class="publication">
-                <p>Mehmood, M.H., Hassan, F., Rahman, A.U., Khan, W., Mostafa, S.M., Ghadi, Y.Y., Algarni, A. and Ali, M., CP_DeepNet: a novel automated system for COVID-19 and pneumonia detection through lung X-rays. 2024. Multimedia Tools and Applications, 1-18. Springer. <a href="[URL]" target="_blank">[URL]</a></p>
-            </div>
-            <div class="publication">
-                <p>Mehmood, M.H., Hassan, F., Rahman, A.U., Rauf, A. and Farooq, M.A., Alzr-Net: A Novel Approach to Detect Alzheimer Disease. In 2023 International Conference on Communication, Computing and Digital Systems (C-CODE) (pp. 1-6). IEEE. <a href="[URL]" target="_blank">[URL]</a></p>
-            </div>
-            <div class="publication">
-                <p>Hassan, F., Mehmood, M. H., Rahman, A. U., Khan, W., Khalid, S., & Ali, M. ViBaNet: A Novel Deep Learning Approach to Detect Bacterial and Viral Pneumonia. In 2023 International Conference on Frontiers of Information Technology (FIT) (pp. 90-95). IEEE. <a href="[URL]" target="_blank">[URL]</a></p>
-            </div>
-            <div class="publication">
-                <p>Hassan, F., Rahman, A. U., Mehmood, M. H., Intelligent Sepsis Detector Using Vital Signs Through Long Short-Term Memory Network. In Proceedings of International Conference on Information Technology and Applications: ICITA 2022 (pp. 3-16). Springer. <a href="[URL]" target="_blank">[URL]</a></p>
-            </div>
-            <div class="publication">
-                <p>Zafar, U., Hassan, F., Mehmood, M. H., Wahab, A., & Javed, A., Voice Operated Fall Detection System Through Novel Acoustic Std-LTP Features and Support Vector Machine. In Proceedings of International Conference on Information Technology and Applications: ICITA 2022. Springer. <a href="[URL]" target="_blank">[URL]</a></p>
-            </div>
-            <div class="publication">
-                <p>Hassan, F., Mehmood, M. H., Younis, B., Mehmood, N., Imran, T., & Zafar, U. Comparative analysis of machine learning algorithms for classification of environmental sounds and fall detection. International Journal of Innovations in Science & Technology (IJIST), 4, 163-174. <a href="[PDF]" target="_blank">[PDF]</a></p>
-            </div>
-        </section>
+                <section id="scholarships-awards">
+                    <h2>Scholarships & Awards</h2>
+                    <div class="award">
+                        <p><strong>Academic Excellence Award 2023/2024:</strong> Awarded by the USTC for outstanding academic performance and excellence.</p>
+                    </div>
+                    <div class="award">
+                        <p><strong>Chinese Government Scholarship (CSC):</strong> Fully funded scholarship for Master's degree at USTC, China.</p>
+                    </div>
+                    <div class="award">
+                        <p><strong>Asian Institute of Technology (AIT) Scholarship:</strong> Awarded a partially funded scholarship.</p>
+                    </div>
+                </section>
 
-        <section id="technical-skills">
-            <h2>Technical Skills</h2>
-            <div class="skills-category">
-                <h3>Programming Languages</h3>
-                <div class="skills-list">
-                    <span class="skill">Python</span>
-                    <span class="skill">C++</span>
-                </div>
-            </div>
-            <div class="skills-category">
-                <h3>Machine & Deep-Learning Frameworks</h3>
-                <div class="skills-list">
-                    <span class="skill">TensorFlow</span>
-                    <span class="skill">PyTorch</span>
-                    <span class="skill">Keras</span>
-                    <span class="skill">Scikit-learn</span>
-                </div>
-            </div>
-            <div class="skills-category">
-                <h3>Data Analysis & Visualization</h3>
-                <div class="skills-list">
-                    <span class="skill">Pandas</span>
-                    <span class="skill">NumPy</span>
-                    <span class="skill">Matplotlib</span>
-                    <span class="skill">Seaborn</span>
-                </div>
-            </div>
-            <div class="skills-category">
-                <h3>Image & Signal Processing</h3>
-                <div class="skills-list">
-                    <span class="skill">OpenCV</span>
-                    <span class="skill">scikit-image</span>
-                    <span class="skill">Librosa</span>
-                </div>
-            </div>
-            <div class="skills-category">
-                <h3>Tools</h3>
-                <div class="skills-list">
-                    <span class="skill">Jupyter Notebook</span>
-                    <span class="skill">VS Code</span>
-                    <span class="skill">GitHub</span>
-                </div>
-            </div>
-        </section>
+                <section id="research-grants">
+                    <h2>Research Grants</h2>
+                    <div class="award">
+                        <p><strong>King Khalid University (R.G.P.2/93/45):</strong> Funded research published in Multimedia Tools and Applications (Springer).</p>
+                    </div>
+                    <div class="award">
+                        <p><strong>Università di Bologna (CRUI CARE Agreement):</strong> Supported open access for this publication.</p>
+                    </div>
+                </section>
+            </aside>
 
-        <section id="language-skills">
-            <h2>Language Skills</h2>
-            <div class="item">
-                <p><strong>English:</strong> Fluent (IELTS certification)</p>
-                <p><strong>Urdu & Punjabi:</strong> Native Speaker</p>
-            </div>
-        </section>
+            <main class="content">
+                <section id="work-experience">
+                    <h2>Work Experience</h2>
+                    <div class="item">
+                        <h3>AI Research Intern</h3>
+                        <p class="organization">Zhongke Juisi Intelligent Technology (Anhui) Co., Ltd.</p>
+                        <p class="date">March 2025 - Present</p>
+                    </div>
+                    <div class="item">
+                        <h3>Research Assistant - Medical Image Analysis</h3>
+                        <p class="organization">University of Science and Technology of China</p>
+                        <p class="date">2023 - Present</p>
+                    </div>
+                    <div class="item">
+                        <h3>Research Assistant - Medical Image Analysis</h3>
+                        <p class="organization">University of Engineering and Technology Taxila</p>
+                        <p class="date">2020 - 2022</p>
+                    </div>
+                </section>
 
-        <section id="scholarships-awards">
-            <h2>Scholarships & Awards</h2>
-            <div class="award">
-                <p><strong>Academic Excellence Award 2023/2024:</strong> Awarded by the USTC for outstanding academic performance and excellence.</p>
-            </div>
-            <div class="award">
-                <p><strong>Chinese Government Scholarship (CSC):</strong> Fully funded scholarship for Master's degree at USTC, China.</p>
-            </div>
-            <div class="award">
-                <p><strong>Asian Institute of Technology (AIT) Scholarship:</strong> Awarded a partially funded scholarship.</p>
-            </div>
-        </section>
+                <section id="education">
+                    <h2>Education</h2>
+                    <div class="item">
+                        <h3>Master of Science in Electronic Information</h3>
+                        <p class="organization">University of Science and Technology of China, Hefei, China</p>
+                        <p class="date">Sep 2023 - Present</p>
+                        <p class="description">Relevant Courses: Deep Learning, Reinforcement Learning, Computer Vision & Pattern Recognition, Data Visualization, Applied Math for Computing</p>
+                    </div>
+                    <div class="item">
+                        <h3>Bachelor of Science in Software Engineering</h3>
+                        <p class="organization">University of Engineering and Technology Taxila, Taxila, Pakistan</p>
+                        <p class="date">Sep 2017 - Jul 2021</p>
+                        <p class="description">Relevant Courses: Machine Learning, Image Processing, Artificial Intelligence</p>
+                    </div>
+                </section>
 
-        <section id="research-grants">
-            <h2>Research Grants</h2>
-            <div class="award">
-                <p><strong>King Khalid University (R.G.P.2/93/45):</strong> Funded research published in Multimedia Tools and Applications (Springer).</p>
-            </div>
-            <div class="award">
-                <p><strong>Università di Bologna (CRUI CARE Agreement):</strong> Supported open access for this publication.</p>
-            </div>
-        </section>
+                <section id="publications">
+                    <h2>Publications</h2>
+                    <div class="publication">
+                        <p>Mehmood, M.H., Khan, M.I., Ibrahim, A., Balancing Privacy and Accuracy: Federated Learning with Differential Privacy for Medical Image Data. DSIT. 2024. IEEE. <a href="[URL]" target="_blank">[URL]</a></p>
+                    </div>
+                    <div class="publication">
+                        <p>Mehmood, M.H., Hassan, F., Rahman, A.U., Khan, W., Mostafa, S.M., Ghadi, Y.Y., Algarni, A. and Ali, M., CP_DeepNet: a novel automated system for COVID-19 and pneumonia detection through lung X-rays. 2024. Multimedia Tools and Applications, 1-18. Springer. <a href="[URL]" target="_blank">[URL]</a></p>
+                    </div>
+                    <div class="publication">
+                        <p>Mehmood, M.H., Hassan, F., Rahman, A.U., Rauf, A. and Farooq, M.A., Alzr-Net: A Novel Approach to Detect Alzheimer Disease. In 2023 International Conference on Communication, Computing and Digital Systems (C-CODE) (pp. 1-6). IEEE. <a href="[URL]" target="_blank">[URL]</a></p>
+                    </div>
+                    <div class="publication">
+                        <p>Hassan, F., Mehmood, M. H., Rahman, A. U., Khan, W., Khalid, S., & Ali, M. ViBaNet: A Novel Deep Learning Approach to Detect Bacterial and Viral Pneumonia. In 2023 International Conference on Frontiers of Information Technology (FIT) (pp. 90-95). IEEE. <a href="[URL]" target="_blank">[URL]</a></p>
+                    </div>
+                    <div class="publication">
+                        <p>Hassan, F., Rahman, A. U., Mehmood, M. H., Intelligent Sepsis Detector Using Vital Signs Through Long Short-Term Memory Network. In Proceedings of International Conference on Information Technology and Applications: ICITA 2022 (pp. 3-16). Springer. <a href="[URL]" target="_blank">[URL]</a></p>
+                    </div>
+                    <div class="publication">
+                        <p>Zafar, U., Hassan, F., Mehmood, M. H., Wahab, A., & Javed, A., Voice Operated Fall Detection System Through Novel Acoustic Std-LTP Features and Support Vector Machine. In Proceedings of International Conference on Information Technology and Applications: ICITA 2022. Springer. <a href="[URL]" target="_blank">[URL]</a></p>
+                    </div>
+                    <div class="publication">
+                        <p>Hassan, F., Mehmood, M. H., Younis, B., Mehmood, N., Imran, T., & Zafar, U. Comparative analysis of machine learning algorithms for classification of environmental sounds and fall detection. International Journal of Innovations in Science & Technology (IJIST), 4, 163-174. <a href="[PDF]" target="_blank">[PDF]</a></p>
+                    </div>
+                </section>
+            </main>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 Muhammad Hamza Mehmood. All rights reserved.</p>
+        <p>&copy; 2025 Muhammad Hamza Mehmood. All rights reserved. | Powered by GitHub Pages</p>
     </footer>
 </body>
 </html>
