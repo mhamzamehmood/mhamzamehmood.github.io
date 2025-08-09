@@ -10,40 +10,41 @@
         /* Global Styles */
         body {
             font-family: 'Lato', sans-serif;
-            line-height: 1.7;
+            line-height: 1.6; /* Reduced line height for compactness */
             color: #4a4a4a;
             background-color: #f8f8f8;
             margin: 0;
             padding: 0;
+            font-size: 14px; /* Base font size reduced */
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 900px; /* Reduced max-width for smaller layout */
             margin: 0 auto;
             background-color: #ffffff;
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            box-shadow: 0 0 15px rgba(0,0,0,0.05); /* Softer shadow */
         }
 
         /* Header */
         header {
             background-color: #ffffff;
-            padding: 40px 60px;
+            padding: 30px 40px; /* Reduced padding */
             border-bottom: 1px solid #e0e0e0;
             display: flex;
             align-items: center;
         }
 
         .profile-pic {
-            width: 180px;
-            height: 180px;
+            width: 150px; /* Smaller profile pic */
+            height: 150px;
             border-radius: 50%;
             background-color: #e0e0e0;
-            margin-right: 40px;
+            margin-right: 30px;
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2em;
+            font-size: 1em;
             color: #7f8c8d;
         }
 
@@ -52,15 +53,15 @@
         }
 
         header h1 {
-            font-size: 2.5em;
-            margin: 0 0 10px;
+            font-size: 2em; /* Reduced font size */
+            margin: 0 0 8px;
             color: #333;
             font-weight: 700;
         }
 
         header p {
-            margin: 5px 0;
-            font-size: 1.1em;
+            margin: 4px 0;
+            font-size: 0.95em; /* Reduced */
             color: #666;
         }
 
@@ -76,7 +77,7 @@
         /* Navigation */
         nav {
             background-color: #f8f8f8;
-            padding: 15px 60px;
+            padding: 10px 40px; /* Reduced padding */
             border-bottom: 1px solid #e0e0e0;
         }
 
@@ -88,13 +89,14 @@
         }
 
         nav li {
-            margin-right: 30px;
+            margin-right: 20px; /* Reduced spacing */
         }
 
         nav a {
             color: #333;
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.95em; /* Reduced */
             transition: color 0.3s;
         }
 
@@ -104,36 +106,36 @@
 
         /* Main Content */
         main {
-            padding: 40px 60px;
+            padding: 30px 40px; /* Reduced padding */
         }
 
         section {
-            margin-bottom: 60px;
+            margin-bottom: 40px; /* Reduced margin */
         }
 
         section h2 {
-            font-size: 1.8em;
+            font-size: 1.5em; /* Reduced */
             color: #333;
             border-bottom: 2px solid #007bff;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
             font-weight: 700;
         }
 
         /* About */
         #about p {
-            font-size: 1.1em;
+            font-size: 0.95em; /* Reduced */
             color: #555;
         }
 
         /* Items */
         .item {
-            margin-bottom: 30px;
+            margin-bottom: 20px; /* Reduced */
         }
 
         .item h3 {
-            font-size: 1.4em;
-            margin: 0 0 5px;
+            font-size: 1.2em; /* Reduced */
+            margin: 0 0 4px;
             color: #333;
             font-weight: 700;
         }
@@ -141,23 +143,25 @@
         .item .organization {
             font-style: italic;
             color: #666;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
+            font-size: 0.9em; /* Reduced */
         }
 
         .item .date {
-            font-size: 0.95em;
+            font-size: 0.85em; /* Reduced */
             color: #888;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .item .description {
             color: #555;
+            font-size: 0.9em; /* Reduced */
         }
 
         /* Publications */
         .publication {
-            margin-bottom: 25px;
-            font-size: 0.95em;
+            margin-bottom: 15px; /* Reduced */
+            font-size: 0.85em; /* Reduced */
             color: #555;
         }
 
@@ -173,14 +177,14 @@
         /* Skills */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller columns */
+            gap: 15px; /* Reduced gap */
         }
 
         .skills-category h3 {
-            font-size: 1.2em;
+            font-size: 1.1em; /* Reduced */
             color: #333;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 700;
         }
 
@@ -190,14 +194,16 @@
         }
 
         .skills-list li {
-            margin-bottom: 8px;
+            margin-bottom: 6px; /* Reduced */
             color: #555;
+            font-size: 0.9em; /* Reduced */
         }
 
         /* Awards and Languages */
         .award, .language {
-            margin-bottom: 15px;
+            margin-bottom: 10px; /* Reduced */
             color: #555;
+            font-size: 0.9em; /* Reduced */
         }
 
         .award strong, .language strong {
@@ -207,10 +213,10 @@
         /* Footer */
         footer {
             background-color: #f8f8f8;
-            padding: 20px 60px;
+            padding: 15px 40px; /* Reduced */
             text-align: center;
             color: #888;
-            font-size: 0.9em;
+            font-size: 0.85em; /* Reduced */
             border-top: 1px solid #e0e0e0;
         }
 
@@ -219,11 +225,11 @@
             header {
                 flex-direction: column;
                 text-align: center;
-                padding: 30px;
+                padding: 20px;
             }
 
             .profile-pic {
-                margin: 0 0 20px;
+                margin: 0 0 15px;
             }
 
             nav ul {
@@ -231,12 +237,41 @@
             }
 
             nav li {
-                margin: 10px 0;
+                margin: 8px 0;
             }
 
             main {
-                padding: 30px;
+                padding: 20px;
             }
+        }
+
+        /* Additional CSS Enhancements */
+        /* Smooth transitions */
+        a {
+            transition: color 0.3s ease;
+        }
+
+        /* Hover effects for sections */
+        section:hover {
+            box-shadow: 0 0 10px rgba(0,123,255,0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        /* Improved list styling */
+        .skills-list li:before {
+            content: "\f058"; /* Font Awesome check circle */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #007bff;
+            margin-right: 8px;
+        }
+
+        /* Border radius for items */
+        .item, .publication, .award {
+            padding: 10px;
+            border: 1px solid #f0f0f0;
+            border-radius: 5px;
+            background-color: #fdfdfd;
         }
     </style>
 </head>
@@ -378,7 +413,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="skills-category" style="margin-top: 30px;">
+                <div class="skills-category" style="margin-top: 20px;">
                     <h3>Language Skills</h3>
                     <ul class="skills-list">
                         <li>English: Fluent (IELTS certification)</li>
