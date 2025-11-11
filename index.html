@@ -1,450 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Hamza Mehmood - Professional Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Global Styles */
-        body {
-            font-family: 'Lato', sans-serif;
-            line-height: 1.6; /* Reduced line height for compactness */
-            color: #4a4a4a;
-            background-color: #f8f8f8;
-            margin: 0;
-            padding: 0;
-            font-size: 14px; /* Base font size reduced */
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Muhammad Hamza Mehmood — Portfolio</title>
+  <meta name="description" content="AI Researcher & Engineer — Medical imaging, deep learning, federated learning." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Light-first, professional palette; dark mode via .dark on body */
+    :root{
+      --bg:#ffffff; --panel:#ffffff; --muted:#6b7280; --text:#111827; --ink:#0f172a;
+      --brand:#0ea5e9; --brand-2:#2563eb; --border:#e5e7eb; --maxw:980px;
+      --radius:10px; --radius-lg:14px; --shadow:0 6px 18px rgba(2,6,23,.06); --shadow-hover:0 10px 26px rgba(2,6,23,.10);
+      --font:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    }
+    body.dark{--bg:#0f1222;--panel:#12162a;--text:#e8ecf6;--muted:#8b93a7;--ink:#eff6ff;--border:#1f263a;--shadow:0 6px 18px rgba(0,0,0,.35);--shadow-hover:0 10px 28px rgba(0,0,0,.45);} 
 
-        .container {
-            max-width: 900px; /* Reduced max-width for smaller layout */
-            margin: 0 auto;
-            background-color: #ffffff;
-            box-shadow: 0 0 15px rgba(0,0,0,0.05); /* Softer shadow */
-        }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:var(--font);background:var(--bg);color:var(--text);font-size:14.5px;line-height:1.6;}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{color:var(--brand-2)}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 18px}
 
-        /* Header */
-        header {
-            background-color: #ffffff;
-            padding: 30px 40px; /* Reduced padding */
-            border-bottom: 1px solid #e0e0e0;
-            display: flex;
-            align-items: center;
-        }
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(8px);background:color-mix(in oklab,var(--panel) 98%,transparent);border-bottom:1px solid var(--border);transition:box-shadow .2s ease}
+    .nav.scrolled{box-shadow:0 6px 18px rgba(2,6,23,.08)}
+    .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:8px 0}
+    .brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:13px;color:var(--ink)}
+    .brand .dot{width:8px;height:8px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand-2));}
+    .menu{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .menu a{font-weight:600;font-size:12.5px;color:var(--ink)}
+    .cta{display:inline-flex;align-items:center;padding:7px 11px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;font-weight:700;box-shadow:var(--shadow);font-size:12.5px;border:0}
 
-        .profile-pic {
-            width: 150px; /* Smaller profile pic */
-            height: 150px;
-            border-radius: 50%;
-            background-color: #e0e0e0;
-            margin-right: 30px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1em;
-            color: #7f8c8d;
-        }
+    /* HERO */
+    .hero{padding:32px 0 16px}
+    .hero-grid{display:grid;grid-template-columns:1.15fr min(200px,28vw);gap:16px;align-items:center}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow);}
+    .pad-lg{padding:18px}
+    .kicker{display:inline-block;padding:4px 9px;border-radius:999px;background:#f3f4f6;color:#4b5563;font-weight:700;font-size:10.5px;text-transform:uppercase}
+    h1{font-size:clamp(22px,3vw,30px);margin:8px 0;color:var(--ink)}
+    p.lead{font-size:14px;color:var(--muted);margin:0 0 10px}
+    .quick{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+    .pill{font-size:11.5px;font-weight:600;padding:5px 8px;border-radius:999px;border:1px dashed var(--border);color:var(--muted);background:#fafafa}
+    .sns{display:flex;gap:10px;margin-top:12px}
+    .sns a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:#f8fafc;border:1px solid var(--border)}
+    .sns a img{width:20px;height:20px;filter:grayscale(100%) brightness(0.35);transition:filter .2s ease,transform .2s ease}
+    .sns a:hover img{filter:none;transform:scale(1.1)}
+    .img-wrap{width:min(180px,34vw);aspect-ratio:1/1;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+    .img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
 
-        .header-info {
-            flex: 1;
-        }
+    /* Sections */
+    section{padding:16px 0}
+    .section-title{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+    .section-title h2{margin:0;font-size:clamp(17px,2vw,22px);color:var(--ink)}
+    .hr{height:1px;background:linear-gradient(90deg,var(--brand),transparent);flex:1;opacity:.85}
 
-        header h1 {
-            font-size: 2em; /* Reduced font size */
-            margin: 0 0 8px;
-            color: #333;
-            font-weight: 700;
-        }
+    .grid{display:grid;gap:12px}
+    .grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
 
-        header p {
-            margin: 4px 0;
-            font-size: 0.95em; /* Reduced */
-            color: #666;
-        }
+    /* Timeline */
+    .timeline{position:relative;margin-left:4px}
+    .timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(var(--brand),transparent)}
+    .event{position:relative;padding-left:24px}
+    .event .dot{position:absolute;left:-1px;top:5px;width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand-2));}
+    .event h3{margin:0 0 2px;font-size:14.5px;color:var(--ink)}
+    .event .meta{color:var(--muted);font-size:12.5px;margin-bottom:6px}
 
-        header a {
-            color: #007bff;
-            text-decoration: none;
-        }
+    /* Cards */
+    .item{padding:12px;border-radius:10px;border:1px solid var(--border);background:#fff}
 
-        header a:hover {
-            text-decoration: underline;
-        }
+    /* Skills */
+    .skill{display:grid;grid-template-columns:120px 1fr;align-items:center;gap:10px}
+    .bar{height:7px;border-radius:999px;background:#eef2f7;overflow:hidden;border:1px solid var(--border)}
+    .fill{height:100%;background:linear-gradient(90deg,var(--brand),var(--brand-2))}
 
-        /* Navigation */
-        nav {
-            background-color: #f8f8f8;
-            padding: 10px 40px; /* Reduced padding */
-            border-bottom: 1px solid #e0e0e0;
-        }
+    /* Publications */
+    .pub{display:grid;gap:4px;padding:10px;border-radius:10px;border:1px solid var(--border);background:#fff}
+    .pub h3{font-size:14px;margin:0;color:var(--ink)}
+    .pub small{color:var(--muted);font-size:12px}
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
+    /* Footer */
+    footer{padding:18px 0 36px;color:var(--muted);font-size:12.5px}
 
-        nav li {
-            margin-right: 20px; /* Reduced spacing */
-        }
+    /* Responsive */
+    @media (max-width:900px){
+      body{font-size:14px}
+      .hero-grid{grid-template-columns:1fr}
+      .grid.two{grid-template-columns:1fr}
+      .grid.three{grid-template-columns:1fr}
+      .skill{grid-template-columns:1fr}
+      .menu{gap:8px}
+    }
 
-        nav a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95em; /* Reduced */
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #007bff;
-        }
-
-        /* Main Content */
-        main {
-            padding: 30px 40px; /* Reduced padding */
-        }
-
-        section {
-            margin-bottom: 40px; /* Reduced margin */
-        }
-
-        section h2 {
-            font-size: 1.5em; /* Reduced */
-            color: #333;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        /* About */
-        #about p {
-            font-size: 0.95em; /* Reduced */
-            color: #555;
-        }
-
-        /* Items */
-        .item {
-            margin-bottom: 20px; /* Reduced */
-        }
-
-        .item h3 {
-            font-size: 1.2em; /* Reduced */
-            margin: 0 0 4px;
-            color: #333;
-            font-weight: 700;
-        }
-
-        .item .organization {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 4px;
-            font-size: 0.9em; /* Reduced */
-        }
-
-        .item .date {
-            font-size: 0.85em; /* Reduced */
-            color: #888;
-            margin-bottom: 8px;
-        }
-
-        .item .description {
-            color: #555;
-            font-size: 0.9em; /* Reduced */
-        }
-
-        /* Publications */
-        .publication {
-            margin-bottom: 15px; /* Reduced */
-            font-size: 0.85em; /* Reduced */
-            color: #555;
-        }
-
-        .publication a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        .publication a:hover {
-            text-decoration: underline;
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller columns */
-            gap: 15px; /* Reduced gap */
-        }
-
-        .skills-category h3 {
-            font-size: 1.1em; /* Reduced */
-            color: #333;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .skills-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .skills-list li {
-            margin-bottom: 6px; /* Reduced */
-            color: #555;
-            font-size: 0.9em; /* Reduced */
-        }
-
-        /* Awards and Languages */
-        .award, .language {
-            margin-bottom: 10px; /* Reduced */
-            color: #555;
-            font-size: 0.9em; /* Reduced */
-        }
-
-        .award strong, .language strong {
-            color: #333;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #f8f8f8;
-            padding: 15px 40px; /* Reduced */
-            text-align: center;
-            color: #888;
-            font-size: 0.85em; /* Reduced */
-            border-top: 1px solid #e0e0e0;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-                padding: 20px;
-            }
-
-            .profile-pic {
-                margin: 0 0 15px;
-            }
-
-            nav ul {
-                flex-direction: column;
-            }
-
-            nav li {
-                margin: 8px 0;
-            }
-
-            main {
-                padding: 20px;
-            }
-        }
-
-        /* Additional CSS Enhancements */
-        /* Smooth transitions */
-        a {
-            transition: color 0.3s ease;
-        }
-
-        /* Hover effects for sections */
-        section:hover {
-            box-shadow: 0 0 10px rgba(0,123,255,0.1);
-            transition: box-shadow 0.3s ease;
-        }
-
-        /* Improved list styling */
-        .skills-list li:before {
-            content: "\f058"; /* Font Awesome check circle */
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            color: #007bff;
-            margin-right: 8px;
-        }
-
-        /* Border radius for items */
-        .item, .publication, .award {
-            padding: 10px;
-            border: 1px solid #f0f0f0;
-            border-radius: 5px;
-            background-color: #fdfdfd;
-        }
-    </style>
+    /* Utilities */
+    .mt-8{margin-top:8px}.mt-16{margin-top:16px}.mt-24{margin-top:24px}
+    .mb-0{margin-bottom:0}
+    .center{display:flex;align-items:center;justify-content:center}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="image.png" alt="Muhammad Hamza Mehmood" class="profile-pic"> 
-            <div class="header-info">
-                <h1>Muhammad Hamza Mehmood</h1>
-                <p>AI Researcher & Engineer | Hefei, China</p>
-                <p>Email: <a href="mailto:mhamzamehmood@mail.ustc.edu.cn">mhamzamehmood@mail.ustc.edu.cn</a></p>
-                <p>
-                    <a href="https://scholar.google.com/" target="_blank">Google Scholar</a> | 
-                    <a href="https://github.com/" target="_blank">GitHub</a> | 
-                    <a href="https://www.researchgate.net/" target="_blank">ResearchGate</a>
-                </p>
-            </div>
-        </header>
-
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#awards">Awards & Grants</a></li>
-            </ul>
-        </nav>
-
-        <main>
-            <section id="about">
-                <h2>About Me</h2>
-                <p>I am a Master's student in Electronic Information at the University of Science and Technology of China, specializing in AI and medical image analysis. With experience as a research assistant and intern in AI technologies, my work focuses on deep learning applications in healthcare, including federated learning, disease detection, and privacy-preserving methods. I am passionate about leveraging machine learning to solve real-world problems in medical imaging and signal processing.</p>
-            </section>
-
-            <section id="experience">
-                <h2>Professional Experience</h2>
-                <div class="item">
-                    <h3>AI Research Intern</h3>
-                    <p class="organization">Zhongke Juisi Intelligent Technology (Anhui) Co., Ltd.</p>
-                    <p class="date">March 2025 - Present</p>
-                </div>
-                <div class="item">
-                    <h3>Research Assistant - Medical Image Analysis</h3>
-                    <p class="organization">University of Science and Technology of China</p>
-                    <p class="date">2023 - Present</p>
-                </div>
-                <div class="item">
-                    <h3>Research Assistant - Medical Image Analysis</h3>
-                    <p class="organization">University of Engineering and Technology Taxila</p>
-                    <p class="date">2020 - 2022</p>
-                </div>
-            </section>
-
-            <section id="education">
-                <h2>Education</h2>
-                <div class="item">
-                    <h3>Master of Science in Electronic Information</h3>
-                    <p class="organization">University of Science and Technology of China, Hefei, China</p>
-                    <p class="date">September 2023 - Present</p>
-                    <p class="description">Relevant Courses: Deep Learning, Reinforcement Learning, Computer Vision & Pattern Recognition, Data Visualization, Applied Math for Computing</p>
-                </div>
-                <div class="item">
-                    <h3>Bachelor of Science in Software Engineering</h3>
-                    <p class="organization">University of Engineering and Technology Taxila, Taxila, Pakistan</p>
-                    <p class="date">September 2017 - July 2021</p>
-                    <p class="description">Relevant Courses: Machine Learning, Image Processing, Artificial Intelligence</p>
-                </div>
-            </section>
-
-            <section id="publications">
-                <h2>Publications</h2>
-                <div class="publication">
-                    Mehmood, M.H., Khan, M.I., Ibrahim, A. (2024). Balancing Privacy and Accuracy: Federated Learning with Differential Privacy for Medical Image Data. DSIT. IEEE. <a href="[URL]" target="_blank">[URL]</a>
-                </div>
-                <div class="publication">
-                    Mehmood, M.H., Hassan, F., Rahman, A.U., Khan, W., Mostafa, S.M., Ghadi, Y.Y., Algarni, A., Ali, M. (2024). CP_DeepNet: a novel automated system for COVID-19 and pneumonia detection through lung X-rays. Multimedia Tools and Applications, 1-18. Springer. <a href="[URL]" target="_blank">[URL]</a>
-                </div>
-                <div class="publication">
-                    Mehmood, M.H., Hassan, F., Rahman, A.U., Rauf, A., Farooq, M.A. (2023). Alzr-Net: A Novel Approach to Detect Alzheimer Disease. In 2023 International Conference on Communication, Computing and Digital Systems (C-CODE) (pp. 1-6). IEEE. <a href="[URL]" target="_blank">[URL]</a>
-                </div>
-                <div class="publication">
-                    Hassan, F., Mehmood, M. H., Rahman, A. U., Khan, W., Khalid, S., Ali, M. (2023). ViBaNet: A Novel Deep Learning Approach to Detect Bacterial and Viral Pneumonia. In 2023 International Conference on Frontiers of Information Technology (FIT) (pp. 90-95). IEEE. <a href="[URL]" target="_blank">[URL]</a>
-                </div>
-                <div class="publication">
-                    Hassan, F., Rahman, A. U., Mehmood, M. H. (2022). Intelligent Sepsis Detector Using Vital Signs Through Long Short-Term Memory Network. In Proceedings of International Conference on Information Technology and Applications: ICITA 2022 (pp. 3-16). Springer. <a href="[URL]" target="_blank">[URL]</a>
-                </div>
-                <div class="publication">
-                    Zafar, U., Hassan, F., Mehmood, M. H., Wahab, A., Javed, A. (2022). Voice Operated Fall Detection System Through Novel Acoustic Std-LTP Features and Support Vector Machine. In Proceedings of International Conference on Information Technology and Applications: ICITA 2022. Springer. <a href="[URL]" target="_blank">[URL]</a>
-                </div>
-                <div class="publication">
-                    Hassan, F., Mehmood, M. H., Younis, B., Mehmood, N., Imran, T., Zafar, U. Comparative analysis of machine learning algorithms for classification of environmental sounds and fall detection. International Journal of Innovations in Science & Technology (IJIST), 4, 163-174. <a href="[PDF]" target="_blank">[PDF]</a>
-                </div>
-            </section>
-
-            <section id="skills">
-                <h2>Technical Skills</h2>
-                <div class="skills-grid">
-                    <div class="skills-category">
-                        <h3>Programming Languages</h3>
-                        <ul class="skills-list">
-                            <li>Python</li>
-                            <li>C++</li>
-                        </ul>
-                    </div>
-                    <div class="skills-category">
-                        <h3>Machine & Deep Learning Frameworks</h3>
-                        <ul class="skills-list">
-                            <li>TensorFlow</li>
-                            <li>PyTorch</li>
-                            <li>Keras</li>
-                            <li>Scikit-learn</li>
-                        </ul>
-                    </div>
-                    <div class="skills-category">
-                        <h3>Data Analysis & Visualization</h3>
-                        <ul class="skills-list">
-                            <li>Pandas</li>
-                            <li>NumPy</li>
-                            <li>Matplotlib</li>
-                            <li>Seaborn</li>
-                        </ul>
-                    </div>
-                    <div class="skills-category">
-                        <h3>Image & Signal Processing</h3>
-                        <ul class="skills-list">
-                            <li>OpenCV</li>
-                            <li>scikit-image</li>
-                            <li>Librosa</li>
-                        </ul>
-                    </div>
-                    <div class="skills-category">
-                        <h3>Tools</h3>
-                        <ul class="skills-list">
-                            <li>Jupyter Notebook</li>
-                            <li>VS Code</li>
-                            <li>GitHub</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="skills-category" style="margin-top: 20px;">
-                    <h3>Language Skills</h3>
-                    <ul class="skills-list">
-                        <li>English: Fluent (IELTS certification)</li>
-                        <li>Urdu & Punjabi: Native Speaker</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section id="awards">
-                <h2>Scholarships, Awards & Research Grants</h2>
-                <div class="award">
-                    <strong>Academic Excellence Award 2023/2024:</strong> Awarded by the USTC for outstanding academic performance and excellence.
-                </div>
-                <div class="award">
-                    <strong>Chinese Government Scholarship (CSC):</strong> Fully funded scholarship for Master's degree at USTC, China.
-                </div>
-                <div class="award">
-                    <strong>Asian Institute of Technology (AIT) Scholarship:</strong> Awarded a partially funded scholarship.
-                </div>
-                <div class="award">
-                    <strong>King Khalid University (R.G.P.2/93/45):</strong> Funded research published in Multimedia Tools and Applications (Springer).
-                </div>
-                <div class="award">
-                    <strong>Università di Bologna (CRUI CARE Agreement):</strong> Supported open access for this publication.
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <p>&copy; 2025 Muhammad Hamza Mehmood. All rights reserved.</p>
-        </footer>
+  <!-- NAV -->
+  <nav class="nav" id="top">
+    <div class="container nav-inner">
+      <div class="brand"><span class="dot" aria-hidden="true"></span><span>Hamza Mehmood</span></div>
+      <div class="menu" role="navigation" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#publications">Publications</a>
+        <a href="#skills">Skills</a>
+        <a href="#awards">Awards</a>
+        <a href="#contact">Contact</a>
+        <button id="themeToggle" class="cta" type="button" title="Toggle appearance">Appearance</button>
+      </div>
     </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="card pad-lg">
+        <span class="kicker">AI Researcher & Engineer</span>
+        <h1 class="mb-0">Muhammad Hamza Mehmood</h1>
+        <p class="lead">Based in Hefei, China. Focused on deep learning for medical imaging, federated learning, and privacy‑preserving AI.</p>
+        <div class="quick" aria-label="Key focus areas">
+          <span class="pill">Medical Image Analysis</span>
+          <span class="pill">Deep Learning</span>
+          <span class="pill">Federated Learning</span>
+          <span class="pill">Computer Vision</span>
+        </div>
+        <div class="sns" aria-label="Social links">
+          <a href="https://github.com/mhamzamehmood" target="_blank" rel="noreferrer noopener" title="GitHub">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub icon">
+          </a>
+          <a href="https://scholar.google.com/citations?user=X09xzA4AAAAJ&hl=en" target="_blank" rel="noreferrer noopener" title="Google Scholar">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlescholar.svg" alt="Google Scholar icon">
+          </a>
+          <a href="https://www.researchgate.net/profile/Muhammad-Hamza-Mehmood?ev=hdr_xprf" target="_blank" rel="noreferrer noopener" title="ResearchGate">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/researchgate.svg" alt="ResearchGate icon">
+          </a>
+        </div>
+        <div class="mt-16"><a class="cta" href="#publications">View Publications</a></div>
+      </div>
+      <div class="card pad-lg center">
+        <div class="img-wrap" aria-hidden="true">
+          <img src="https://avatars.githubusercontent.com/u/0?v=4" alt="Portrait placeholder" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-title"><h2>About</h2><div class="hr"></div></div>
+        <div class="item">
+          <p>I’m a Master’s student in Electronic Information at the University of Science and Technology of China. My work centers on <strong>medical image analysis</strong>, <strong>deep learning</strong>, and <strong>privacy‑preserving AI</strong> (e.g., federated learning with differential privacy). I enjoy building practical systems that advance healthcare AI while respecting data governance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-title"><h2>Experience</h2><div class="hr"></div></div>
+        <ol class="timeline">
+          <li class="event item">
+            <span class="dot"></span>
+            <h3>AI Research Intern</h3>
+            <div class="meta">Zhongke Juisi Intelligent Technology (Anhui) Co., Ltd. · <em>Mar 2025 — Present</em></div>
+            <p>Industry‑applied research in computer vision and AI systems, focusing on robust deployment and experimentation.</p>
+          </li>
+          <li class="event item">
+            <span class="dot"></span>
+            <h3>Research Assistant — Medical Image Analysis</h3>
+            <div class="meta">University of Science and Technology of China · <em>2023 — Present</em></div>
+            <p>Deep learning for disease detection, privacy‑preserving training, and multi‑modal analysis.</p>
+          </li>
+          <li class="event item">
+            <span class="dot"></span>
+            <h3>Research Assistant — Medical Image Analysis</h3>
+            <div class="meta">UET Taxila · <em>2020 — 2022</em></div>
+            <p>Classical ML & deep learning baselines for imaging and biomedical signal processing.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="container">
+        <div class="section-title"><h2>Education</h2><div class="hr"></div></div>
+        <div class="grid two">
+          <div class="item">
+            <h3 class="mb-0">M.Sc. Electronic Information</h3>
+            <div class="meta">University of Science and Technology of China, Hefei · <em>Sep 2023 — Present</em></div>
+            <p class="mt-8">Selected coursework: Deep Learning, Reinforcement Learning, Computer Vision & Pattern Recognition, Data Visualization, Applied Math for Computing.</p>
+          </div>
+          <div class="item">
+            <h3 class="mb-0">B.Sc. Software Engineering</h3>
+            <div class="meta">UET Taxila · <em>Sep 2017 — Jul 2021</em></div>
+            <p class="mt-8">Core areas: Machine Learning, Image Processing, Artificial Intelligence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <div class="container">
+        <div class="section-title"><h2>Publications</h2><div class="hr"></div></div>
+        <div class="grid">
+          <article class="pub">
+            <h3 class="mb-0">Balancing Privacy and Accuracy: Federated Learning with Differential Privacy for Medical Image Data</h3>
+            <small>Mehmood, M.H., Khan, M.I., Ibrahim, A. (2024). DSIT, IEEE.</small>
+          </article>
+          <article class="pub">
+            <h3 class="mb-0">CP_DeepNet: a novel automated system for COVID‑19 and pneumonia detection through lung X‑rays</h3>
+            <small>Mehmood, M.H., Hassan, F., Rahman, A.U., et al. (2024). <em>Multimedia Tools and Applications</em>, Springer.</small>
+          </article>
+          <article class="pub">
+            <h3 class="mb-0">Alzr‑Net: A Novel Approach to Detect Alzheimer Disease</h3>
+            <small>Mehmood, M.H., Hassan, F., Rahman, A.U., et al. (2023). C‑CODE, IEEE.</small>
+          </article>
+          <article class="pub">
+            <h3 class="mb-0">ViBaNet: A Novel Deep Learning Approach to Detect Bacterial and Viral Pneumonia</h3>
+            <small>Hassan, F., Mehmood, M.H., et al. (2023). FIT, IEEE.</small>
+          </article>
+          <article class="pub">
+            <h3 class="mb-0">Intelligent Sepsis Detector Using Vital Signs Through LSTM</h3>
+            <small>Hassan, F., Rahman, A.U., Mehmood, M.H. (2022). ICITA, Springer.</small>
+          </article>
+          <article class="pub">
+            <h3 class="mb-0">Voice Operated Fall Detection with Acoustic Std‑LTP + SVM</h3>
+            <small>Zafar, U., Hassan, F., Mehmood, M.H., et al. (2022). ICITA, Springer.</small>
+          </article>
+          <article class="pub">
+            <h3 class="mb-0">Comparative analysis of ML algorithms for environmental sound + fall detection</h3>
+            <small>Hassan, F., Mehmood, M. H., et al. IJIST.</small>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-title"><h2>Skills</h2><div class="hr"></div></div>
+        <div class="grid two">
+          <div class="item">
+            <div class="skill"><strong>Python</strong><div class="bar" aria-hidden="true"><div class="fill" style="width:92%"></div></div></div>
+            <div class="skill"><strong>C++</strong><div class="bar"><div class="fill" style="width:70%"></div></div></div>
+            <div class="skill"><strong>PyTorch</strong><div class="bar"><div class="fill" style="width:88%"></div></div></div>
+            <div class="skill"><strong>TensorFlow/Keras</strong><div class="bar"><div class="fill" style="width:78%"></div></div></div>
+            <div class="skill"><strong>scikit‑learn</strong><div class="bar"><div class="fill" style="width:82%"></div></div></div>
+          </div>
+          <div class="item">
+            <div class="skill"><strong>OpenCV</strong><div class="bar"><div class="fill" style="width:80%"></div></div></div>
+            <div class="skill"><strong>Matplotlib</strong><div class="bar"><div class="fill" style="width:76%"></div></div></div>
+            <div class="skill"><strong>Seaborn</strong><div class="bar"><div class="fill" style="width:72%"></div></div></div>
+            <div class="skill"><strong>Librosa</strong><div class="bar"><div class="fill" style="width:68%"></div></div></div>
+            <div class="skill"><strong>Tools: Jupyter · VS Code · GitHub</strong><div class="bar"><div class="fill" style="width:85%"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section id="awards">
+      <div class="container">
+        <div class="section-title"><h2>Awards & Grants</h2><div class="hr"></div></div>
+        <ul class="grid">
+          <li class="item"><strong>Academic Excellence Award (2023/24)</strong> — USTC.</li>
+          <li class="item"><strong>Chinese Government Scholarship (CSC)</strong> — Master’s, USTC.</li>
+          <li class="item"><strong>AIT Scholarship</strong> — Partially funded.</li>
+          <li class="item"><strong>King Khalid University (R.G.P.2/93/45)</strong> — Publication support (Springer, MTAP).</li>
+          <li class="item"><strong>Università di Bologna (CRUI CARE)</strong> — Open‑access support.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-title"><h2>Contact</h2><div class="hr"></div></div>
+        <div class="grid two">
+          <div class="item">
+            <p>Email: <a href="mailto:mhamzamehmood@mail.ustc.edu.cn">mhamzamehmood@mail.ustc.edu.cn</a></p>
+            <p>Location: Hefei, China</p>
+          </div>
+          <form class="item" action="https://formspree.io/f/xgeqdwgp" method="POST">
+            <label class="sr-only" for="name">Name</label>
+            <input id="name" name="name" placeholder="Your name" required style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:#fff; color:var(--text); margin-bottom:10px">
+            <label class="sr-only" for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="you@example.com" required style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:#fff; color:var(--text); margin-bottom:10px">
+            <label class="sr-only" for="msg">Message</label>
+            <textarea id="msg" name="message" placeholder="Tell me about your project..." rows="4" required style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:#fff; color:var(--text); margin-bottom:10px"></textarea>
+            <button class="cta" type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Muhammad Hamza Mehmood. All rights reserved.</p>
+      <p class="mt-8"><a href="#top" aria-label="Back to top">Back to top ↑</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for same-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id=a.getAttribute('href'); if(id.length<2) return;
+        const el=document.querySelector(id); if(!el) return;
+        e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'});
+        history.pushState(null, '', id);
+      })
+    })
+
+    // Appearance toggle (light <-> dark), with preference stored in localStorage
+    const STORAGE_KEY='prefers-dark-portfolio';
+    const toggle=document.getElementById('themeToggle');
+    const applyPref=()=>{ const dark=localStorage.getItem(STORAGE_KEY)==='1'; document.body.classList.toggle('dark', dark); };
+    applyPref();
+    toggle?.addEventListener('click', ()=>{
+      const now=!document.body.classList.contains('dark');
+      document.body.classList.toggle('dark', now);
+      localStorage.setItem(STORAGE_KEY, now?'1':'0');
+    });
+
+    // Add shadow to nav after scrolling
+    const nav=document.querySelector('.nav');
+    const onScroll=()=>{ if(window.scrollY>8){ nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); } };
+    document.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+
+    // Active section highlight in nav
+    const sections=[...document.querySelectorAll('main section')];
+    const links=[...document.querySelectorAll('.menu a[href^="#"]')];
+    const map=new Map(sections.map(s=>['#'+s.id,s]));
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const id='#'+entry.target.id;
+          links.forEach(l=>l.style.opacity=l.getAttribute('href')===id? '1':'0.75');
+        }
+      });
+    },{root:null,rootMargin:'-50% 0px -45% 0px',threshold:0});
+    sections.forEach(s=>io.observe(s));
+  </script>
 </body>
 </html>
